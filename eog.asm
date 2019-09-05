@@ -1,7 +1,6 @@
     processor 6502
 
     include "vcs.h"
-    include "macro.h"
 
 ;;; ---------------------------------------------------------------------------
 ;;; Define vars starting from mem address $80
@@ -23,7 +22,19 @@ P_HEIGHT = 8                    ; Number of rows in lookup table
     org $F000
 
 Reset:
-    CLEAN_START                 ; macro to clean mem and registers
+;;; ---------------------------------------------------------------------------
+;;; cleanup
+    sei             ; disable the interrupts
+    cld             ; disable BCD decimal math mode
+    ldx #$FF        ; loads the X register with #$FF
+    txs             ; transfer X register to S(stack) register/pointer
+    lda #0          ; A = 0
+    ldx #$FF        ; X = #$FF
+    sta $FF         ; make sure $FF is zeroed before the loop start
+MemLoop:
+    dex             ; x--
+    sta $0,X        ; store zero (the value inside the register A) at address $0 + X
+    bne MemLoop     ; loop until x == 0 (z flag set)
 
 ;;; ---------------------------------------------------------------------------
 ;;; Init RAM vars and TIA registers
