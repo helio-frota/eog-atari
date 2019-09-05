@@ -9,3 +9,7 @@ Learning some assembly using 6502 processor of atari 2600.
 $ make
 $ make run
 ```
+
+Current screenshot:
+
+![Alt screenshot](https://raw.githubusercontent.com/helio-frota/eog-atari/master/screenshot.png)
