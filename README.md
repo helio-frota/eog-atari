@@ -1,5 +1,5 @@
 # eog-atari
-Learning some assembly using 6502 processor of atari 2600.
+My attempt to port a game I made years ago to assembly language using 6502 processor of atari 2600.
 
 ## Build and run
 
