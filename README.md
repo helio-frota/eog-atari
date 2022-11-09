@@ -13,3 +13,5 @@ $ make run
 Current screenshot:
 
 ![Alt screenshot](https://raw.githubusercontent.com/helio-frota/eog-atari/master/screenshot.png)
+
+
